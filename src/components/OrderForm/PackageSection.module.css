@@ -1,0 +1,122 @@
+.card {
+  /* specific card styles if any */
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 0 10px;
+}
+
+.packageRow {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  gap: 15px;
+}
+
+.colName { flex: 2; min-width: 120px; }
+.colWt { flex: 0.8; min-width: 70px; }
+.colDim { flex: 1.5; min-width: 140px; }
+.colVal { flex: 1; min-width: 90px; }
+.colAction { width: 50px; display: flex; justify-content: flex-end; gap: 8px; }
+
+.dimGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dimInput {
+  text-align: center;
+  padding: 10px 4px;
+}
+
+.cross {
+  color: #888;
+  font-size: 14px;
+}
+
+.actionBtn {
+  background: none;
+  border: none;
+  color: #777;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  transition: color 0.2s;
+  display: flex;
+}
+
+.actionBtn:hover {
+  color: #333;
+}
+
+.removeIcon:hover {
+  color: #b11f24;
+}
+
+.saveIcon {
+  color: #2e7d32;
+}
+
+.saveIcon:hover {
+  color: #1b5e20;
+}
+
+.addBtn {
+  width: 100%;
+  padding: 15px;
+  background-color: transparent;
+  border: 1px dashed #e0e0e0;
+  color: #b11f24;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.addBtn:hover {
+  background-color: #fdf5f5;
+  border-color: #b11f24;
+}
+
+.optionsRow {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.iconOp {
+  color: #b11f24;
+  margin-right: 4px;
+}
+
+/* Fix table header alignment */
+.tableHeader > div > label {
+  margin-bottom: 0;
+}
+.tableHeader .colAction {
+  width: 24px;
+}
+
+@media (max-width: 768px) {
+  .packageRow {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tableHeader {
+    display: none; /* Hide header on mobile, use placeholders or dynamic labels instead */
+  }
+}

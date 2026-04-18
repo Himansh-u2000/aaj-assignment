@@ -1,0 +1,52 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s, opacity 0.2s;
+  font-family: inherit;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.primary {
+  background-color: #b11f24; /* AAJ brand red */
+  color: white;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: #9a1a1f;
+}
+
+.primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.secondary {
+  background-color: transparent;
+  color: #b11f24;
+  border: 1px dashed #e0e0e0;
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: #fdf5f5;
+  border-color: #b11f24;
+}
+
+.outline {
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.outline:hover:not(:disabled) {
+  background-color: #f9f9f9;
+}

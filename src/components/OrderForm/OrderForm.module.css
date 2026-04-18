@@ -1,0 +1,78 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.headerIcons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.icon:hover {
+  color: #1a1a1a;
+}
+
+.avatar {
+  background-color: #2b3a4a;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.formBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* Cards already have margin-bottom */
+}
+
+.addressRow {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 0;
+}
+
+.submitRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.submitBtn {
+  min-width: 180px;
+  padding: 14px 30px;
+  font-size: 16px;
+}
+
+@media (max-width: 900px) {
+  .addressRow {
+    flex-direction: column;
+  }
+}

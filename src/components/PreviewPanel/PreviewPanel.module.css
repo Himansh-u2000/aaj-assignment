@@ -1,0 +1,224 @@
+.previewPanel {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 30px;
+  position: sticky;
+  top: 30px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pretitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #777;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.badge {
+  background-color: #e0e0e0;
+  color: #555;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
+.orderInfo {
+  margin-bottom: 30px;
+}
+
+.orderId {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 5px 0;
+}
+
+.date {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}
+
+.addresses {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.addressBlock {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.addressBlock:last-child {
+  margin-bottom: 0;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #b11f24;
+  background-color: #fff;
+  margin-right: 15px;
+  margin-top: 4px;
+}
+
+.circleDest {
+  border-color: #333;
+}
+
+.connectingLine {
+  position: absolute;
+  left: 25px;
+  top: 30px;
+  bottom: 30px;
+  width: 1px;
+  background-color: #ddd;
+  z-index: 1;
+}
+
+.addressTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: #888;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.5px;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 2px 0;
+}
+
+.subText {
+  font-size: 13px;
+  color: #777;
+  margin: 0;
+}
+
+.manifestSection {
+  flex: 1;
+  margin-bottom: 30px;
+}
+
+.manifestTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #777;
+  letter-spacing: 0.5px;
+  margin: 0 0 15px 0;
+}
+
+.packagesList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.packageItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pkgName {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 2px 0;
+}
+
+.pkgDim {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.pkgRight {
+  text-align: right;
+}
+
+.pkgWeight {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 2px 0;
+}
+
+.pkgValue {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.footer {
+  margin-top: auto;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+}
+
+.totalsRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.totalLabel {
+  font-size: 13px;
+  color: #777;
+  margin: 0 0 5px 0;
+}
+
+.totalValue {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.unit {
+  font-size: 14px;
+  font-weight: 600;
+  color: #777;
+}
+
+.textRight {
+  text-align: right;
+}
+
+.insuredBadge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+.iconOp {
+  margin-right: 4px;
+}

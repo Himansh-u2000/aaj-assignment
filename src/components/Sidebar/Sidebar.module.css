@@ -1,0 +1,109 @@
+.sidebar {
+  width: 250px;
+  background-color: #f4f5f6; /* Matching App background but typically isolated */
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.logoContainer {
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.logoBox {
+  border: 2px solid #b11f24;
+  padding: 5px 15px;
+  display: inline-block;
+  position: relative;
+  background-color: white;
+}
+
+.logoText {
+  color: #b11f24;
+  font-size: 32px;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+.logoLine {
+  position: absolute;
+  height: 2px;
+  width: 30px;
+  background-color: #b11f24;
+  right: 10px;
+  bottom: 12px;
+  transform: skewX(-20deg);
+}
+
+.nav {
+  flex: 1;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  margin-bottom: 5px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 12px 30px;
+  color: #555;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.navLink:hover {
+  background-color: #eaebeb;
+  color: #333;
+}
+
+.navLink.active {
+  color: #b11f24;
+  background-color: transparent;
+}
+
+.navLink.active .icon {
+  color: #b11f24;
+  background-color: #b11f24;
+  color: white; /* Specifically for the plus icon style in active */
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.icon {
+  margin-right: 12px;
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.bottomSection {
+  padding: 30px;
+  padding-bottom: 20px;
+}
+
+.newShipmentBtn {
+  width: 100%;
+}
+
+.footer {
+  padding: 0 30px 40px 30px;
+}
