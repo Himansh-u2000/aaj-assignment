@@ -17,6 +17,11 @@
 .appContainer {
   display: flex;
   min-height: 100vh;
+  position: relative;
+}
+
+.overlay {
+  display: none;
 }
 
 .mainContent {
@@ -27,6 +32,7 @@
   max-width: 1600px;
   margin: 0 auto;
   width: 100%;
+  min-width: 0;
 }
 
 .topHeader {
@@ -34,6 +40,24 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+}
+
+.menuBtn {
+  display: none; /* hidden on desktop */
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: #555;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.menuBtn:hover {
+  background: #eee;
 }
 
 .headerSpacer {
@@ -79,12 +103,15 @@
 .leftColumn {
   flex: 1;
   max-width: 800px;
+  min-width: 0;
 }
 
 .rightColumn {
   flex: 0 0 350px;
+  min-width: 0;
 }
 
+/* ── Tablet ── */
 @media (max-width: 1024px) {
   .columnsWrapper {
     flex-direction: column;
@@ -92,5 +119,24 @@
 
   .rightColumn {
     flex: 1;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 20px 16px;
+  }
+
+  .menuBtn {
+    display: flex; /* show hamburger on mobile */
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 199;
   }
 }

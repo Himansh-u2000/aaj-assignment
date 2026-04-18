@@ -1,28 +1,54 @@
 .sidebar {
   width: 250px;
-  background-color: #f4f5f6; /* Matching App background but typically isolated */
+  background-color: #f4f5f6;
   border-right: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
   height: 100vh;
   position: sticky;
   top: 0;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  z-index: 200;
 }
 
 .logoContainer {
   padding: 24px 20px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logoImage {
-  width: 100%;
-  max-width: 160px;
+  width: auto;
+  max-width: 140px;
   height: auto;
   display: block;
   object-fit: contain;
   border-radius: 4px;
 }
 
+/* Close button — only visible on mobile */
+.closeBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.closeBtn:hover {
+  background: #e0e0e0;
+}
+
+/* Logo fallback box (kept for safety) */
 .logoBox {
   border: 2px solid #b11f24;
   padding: 5px 15px;
@@ -51,6 +77,7 @@
 
 .nav {
   flex: 1;
+  overflow-y: auto;
 }
 
 .navList {
@@ -60,7 +87,7 @@
 }
 
 .navItem {
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .navLink {
@@ -72,6 +99,7 @@
   font-size: 14px;
   font-weight: 600;
   transition: all 0.2s;
+  border-radius: 0;
 }
 
 .navLink:hover {
@@ -85,12 +113,11 @@
 }
 
 .navLink.active .icon {
-  color: #b11f24;
   background-color: #b11f24;
-  color: white; /* Specifically for the plus icon style in active */
+  color: white;
   border-radius: 4px;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +128,10 @@
   margin-right: 12px;
   font-size: 16px;
   width: 20px;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .bottomSection {
@@ -115,4 +145,26 @@
 
 .footer {
   padding: 0 30px 40px 30px;
+}
+
+/* ── Mobile: sidebar off-canvas ── */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    box-shadow: none;
+    background-color: #fff;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .closeBtn {
+    display: flex;
+  }
 }

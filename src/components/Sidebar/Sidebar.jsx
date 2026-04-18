@@ -7,15 +7,15 @@ import {
   FiTruck,
   FiFileText,
   FiHelpCircle,
-  FiLogOut
+  FiLogOut,
 } from 'react-icons/fi';
 import logoImage from '../../assets/logo.jpg';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   return (
-    <aside className={styles.sidebar}>
+    <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
       <div className={styles.logoContainer}>
-        <img src={logoImage} alt="AAJ Logo" className={styles.logoImage} onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+        <img src={logoImage} alt="AAJ Logo" className={styles.logoImage} />
       </div>
 
       <nav className={styles.nav}>

@@ -1,122 +1,109 @@
-.card {
-  /* specific card styles if any */
-}
-
-.tableHeader {
+.cardTitleRow {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
-  padding: 0 10px;
+  width: 100%;
 }
 
-.packageRow {
-  display: flex;
+.addBtn {
+  display: inline-flex;
   align-items: center;
-  background-color: #f8f9fa;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  gap: 15px;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
 }
 
-.colName { flex: 2; min-width: 120px; }
-.colWt { flex: 0.8; min-width: 70px; }
-.colDim { flex: 1.5; min-width: 140px; }
-.colVal { flex: 1; min-width: 90px; }
-.colAction { width: 50px; display: flex; justify-content: flex-end; gap: 8px; }
-
-.dimGroup {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.dimInput {
-  text-align: center;
-  padding: 10px 4px;
-}
-
-.cross {
-  color: #888;
+.emptyText {
   font-size: 14px;
+  color: #aaa;
+  text-align: center;
+  padding: 8px 0 12px 0;
+  margin: 0;
+}
+
+.packageList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.packageItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  border: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.packageItem:hover {
+  background-color: #f0f1f2;
+}
+
+.pkgMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.pkgName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 2px 0;
+}
+
+.pkgDetails {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+.pkgActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .actionBtn {
   background: none;
   border: none;
-  color: #777;
-  font-size: 16px;
   cursor: pointer;
-  line-height: 1;
-  padding: 4px;
-  transition: color 0.2s;
+  color: #888;
+  font-size: 15px;
+  padding: 6px;
+  border-radius: 6px;
   display: flex;
+  align-items: center;
+  transition: color 0.2s, background 0.2s;
 }
 
 .actionBtn:hover {
+  background: #ececec;
   color: #333;
 }
 
-.removeIcon:hover {
+.deleteBtn:hover {
+  background: #fff0f0;
   color: #b11f24;
-}
-
-.saveIcon {
-  color: #2e7d32;
-}
-
-.saveIcon:hover {
-  color: #1b5e20;
-}
-
-.addBtn {
-  width: 100%;
-  padding: 15px;
-  background-color: transparent;
-  border: 1px dashed #e0e0e0;
-  color: #b11f24;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 10px;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.addBtn:hover {
-  background-color: #fdf5f5;
-  border-color: #b11f24;
 }
 
 .optionsRow {
   display: flex;
   gap: 30px;
   align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid #f0f0f0;
 }
 
 .iconOp {
   color: #b11f24;
   margin-right: 4px;
-}
-
-/* Fix table header alignment */
-.tableHeader > div > label {
-  margin-bottom: 0;
-}
-.tableHeader .colAction {
-  width: 24px;
-}
-
-@media (max-width: 768px) {
-  .packageRow {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .tableHeader {
-    display: none; /* Hide header on mobile, use placeholders or dynamic labels instead */
-  }
+  display: inline-flex;
+  vertical-align: middle;
 }

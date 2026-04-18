@@ -1,19 +1,19 @@
 import React from 'react';
-import { FaShieldAlt } from 'react-icons/fa';
+import { FaShieldAlt, FaWineGlass } from 'react-icons/fa';
 import styles from './PreviewPanel.module.css';
 
 const PreviewPanel = ({ orderState }) => {
-  const { orderId, shipmentDate, deliveryType, consignor, consignee, packages, isInsured } = orderState;
+  const { orderId, shipmentDate, deliveryType, consignor, consignee, packages, isInsured, isFragile } = orderState;
 
   // Formatting date
-  const displayDate = shipmentDate 
+  const displayDate = shipmentDate
     ? new Date(shipmentDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
     : 'Pending Date';
 
   // Calculations
   const tCount = packages.length;
   const validPkgs = packages.filter(p => p.weight || p.value || p.name);
-  
+
   const totalWeight = validPkgs.reduce((acc, curr) => acc + (parseFloat(curr.weight) || 0), 0);
   const totalValue = validPkgs.reduce((acc, curr) => acc + (parseFloat(curr.value) || 0), 0);
 
@@ -30,33 +30,43 @@ const PreviewPanel = ({ orderState }) => {
       </div>
 
       <div className={styles.addresses}>
-        <div className={styles.addressBlock}>
-          <div className={styles.circle}></div>
-          <div>
-            <p className={styles.addressTitle}>ORIGIN</p>
+        <div className={styles.addressRow}>
+          <div className={`${styles.addressCard} ${styles.fromCard}`}>
+            <span className={styles.fromToLabel}>From</span>
             <p className={styles.name}>{consignor.name || 'Sender Name'}</p>
             <p className={styles.subText}>
-              {consignor.city || 'City'}, {consignor.pincode || 'ZIP'}
+              {[consignor.address, consignor.city, consignor.pincode].filter(Boolean).join(', ') || 'City, ZIP'}
             </p>
           </div>
-        </div>
-        
-        <div className={styles.addressBlock}>
-          <div className={`${styles.circle} ${styles.circleDest}`}></div>
-          <div>
-            <p className={styles.addressTitle}>DESTINATION</p>
+
+          <div className={`${styles.addressCard} ${styles.toCard}`}>
+            <span className={styles.fromToLabel}>To</span>
             <p className={styles.name}>{consignee.name || 'Receiver Name'}</p>
             <p className={styles.subText}>
-              {consignee.city || 'City'}, {consignee.pincode || 'ZIP'}
+              {[consignee.address, consignee.city, consignee.pincode].filter(Boolean).join(', ') || 'City, ZIP'}
             </p>
           </div>
         </div>
-        <div className={styles.connectingLine}></div>
+
+        {(isFragile || isInsured) && (
+          <div className={styles.badgesRow}>
+            {isFragile && (
+              <div className={styles.fragileBadge}>
+                <span className={styles.iconOp}><FaWineGlass /></span> Fragile
+              </div>
+            )}
+            {isInsured && (
+              <div className={styles.insuredBadge}>
+                <span className={styles.iconOp}><FaShieldAlt /></span> Insured
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       <div className={styles.manifestSection}>
-        <p className={styles.manifestTitle}>MANIFEST ({tCount} ITEM{tCount !== 1 ? 'S' : ''})</p>
-        
+        <p className={styles.manifestTitle}>Package Summary ({tCount} ITEM{tCount !== 1 ? 'S' : ''})</p>
+
         <div className={styles.packagesList}>
           {packages.map((pkg, idx) => (
             <div key={pkg.id || idx} className={styles.packageItem}>
@@ -86,12 +96,6 @@ const PreviewPanel = ({ orderState }) => {
             <p className={styles.totalValue}>₹{totalValue.toLocaleString()}</p>
           </div>
         </div>
-
-        {isInsured && (
-          <div className={styles.insuredBadge}>
-            <span className={styles.iconOp}><FaShieldAlt /></span> Insured
-          </div>
-        )}
       </div>
     </div>
   );

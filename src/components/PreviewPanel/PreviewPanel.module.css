@@ -76,14 +76,15 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid #b11f24;
-  background-color: #fff;
+  border: 2px solid #1a6fc4;
+  background-color: #1a6fc4;
   margin-right: 15px;
   margin-top: 4px;
 }
 
 .circleDest {
-  border-color: #333;
+  background-color: #9ca3af;
+  border-color: #9ca3af;
 }
 
 .connectingLine {
@@ -102,6 +103,29 @@
   color: #888;
   margin: 0 0 4px 0;
   letter-spacing: 0.5px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.originBadge {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.destBadge {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
 }
 
 .name {
@@ -207,18 +231,38 @@
   text-align: right;
 }
 
+.badgesRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .insuredBadge {
   display: inline-flex;
   align-items: center;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #f0f7ff;
+  border: 1px solid #bdd7f5;
   padding: 4px 10px;
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
-  color: #333;
+  color: #1a5fa8;
+}
+
+.fragileBadge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fff8f0;
+  border: 1px solid #f5d6b0;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #b45309;
 }
 
 .iconOp {
   margin-right: 4px;
+  display: inline-flex;
+  align-items: center;
 }
