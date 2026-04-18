@@ -10,18 +10,29 @@ import styles from './PackageSection.module.css';
 const PackageSection = ({ orderState, setOrderState }) => {
   const { packages, isFragile, isInsured } = orderState;
 
+  // New packages start in edit mode (isEditable: true) so user can fill them in.
+  // Clicking the tick saves (locks) the row; clicking pencil re-opens for editing.
   const handleAddPackage = () => {
     setOrderState({
       ...orderState,
       packages: [
-        ...packages,
+        // Auto-save (lock) all existing packages first
+        ...packages.map(pkg => ({ ...pkg, isEditable: false })),
+        // Add new blank package in edit mode
         { id: Date.now(), name: '', weight: '', length: '', width: '', height: '', value: '', isEditable: true }
       ]
     });
   };
 
+  // Block minus, 'e', 'E' from being typed in numeric fields
+  const preventNegative = (e) => {
+    if (e.key === '-' || e.key === 'e' || e.key === 'E') {
+      e.preventDefault();
+    }
+  };
+
   const handleRemovePackage = (id) => {
-    if (packages.length <= 1) return; // Minimum 1 package
+    if (packages.length <= 1) return;
     setOrderState({
       ...orderState,
       packages: packages.filter(pkg => pkg.id !== id)
@@ -29,18 +40,23 @@ const PackageSection = ({ orderState, setOrderState }) => {
   };
 
   const handlePackageChange = (id, field, val) => {
+    // Double-guard: reject negative values via state too
+    if (['weight', 'length', 'width', 'height', 'value'].includes(field)) {
+      if (val !== '' && Number(val) < 0) return;
+    }
     setOrderState({
       ...orderState,
-      packages: packages.map(pkg => 
+      packages: packages.map(pkg =>
         pkg.id === id ? { ...pkg, [field]: val } : pkg
       )
     });
   };
 
+  // Toggle between edit mode and saved (read-only) mode
   const toggleEditStatus = (id) => {
     setOrderState({
       ...orderState,
-      packages: packages.map(pkg => 
+      packages: packages.map(pkg =>
         pkg.id === id ? { ...pkg, isEditable: !pkg.isEditable } : pkg
       )
     });
@@ -52,7 +68,7 @@ const PackageSection = ({ orderState, setOrderState }) => {
         <div className={styles.colName}><Label>Package Name</Label></div>
         <div className={styles.colWt}><Label>Wt (kg)</Label></div>
         <div className={styles.colDim}><Label>L × W × H (cm)</Label></div>
-        <div className={styles.colVal}><Label>Value ($)</Label></div>
+        <div className={styles.colVal}><Label>Value (₹)</Label></div>
         <div className={styles.colAction}></div>
       </div>
 
@@ -71,6 +87,7 @@ const PackageSection = ({ orderState, setOrderState }) => {
             <Input 
               value={pkg.weight} 
               onChange={(e) => handlePackageChange(pkg.id, 'weight', e.target.value)} 
+              onKeyDown={preventNegative}
               type="number"
               min="0"
               placeholder="45"
@@ -82,6 +99,7 @@ const PackageSection = ({ orderState, setOrderState }) => {
             <Input 
               value={pkg.length} 
               onChange={(e) => handlePackageChange(pkg.id, 'length', e.target.value)} 
+              onKeyDown={preventNegative}
               type="number"
               min="0"
               placeholder="L"
@@ -93,6 +111,7 @@ const PackageSection = ({ orderState, setOrderState }) => {
             <Input 
               value={pkg.width} 
               onChange={(e) => handlePackageChange(pkg.id, 'width', e.target.value)} 
+              onKeyDown={preventNegative}
               type="number"
               min="0"
               placeholder="W"
@@ -104,6 +123,7 @@ const PackageSection = ({ orderState, setOrderState }) => {
             <Input 
               value={pkg.height} 
               onChange={(e) => handlePackageChange(pkg.id, 'height', e.target.value)} 
+              onKeyDown={preventNegative}
               type="number"
               min="0"
               placeholder="H"
@@ -116,6 +136,7 @@ const PackageSection = ({ orderState, setOrderState }) => {
             <Input 
               value={pkg.value} 
               onChange={(e) => handlePackageChange(pkg.id, 'value', e.target.value)} 
+              onKeyDown={preventNegative}
               type="number"
               min="0"
               placeholder="2500"

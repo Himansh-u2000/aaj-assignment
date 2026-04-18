@@ -1,25 +1,21 @@
 import React from 'react';
 import styles from './Sidebar.module.css';
 import Button from '../UI/Button/Button';
-import { 
-  FiGrid, 
-  FiPlusSquare, 
-  FiTruck, 
-  FiFileText, 
+import {
+  FiGrid,
+  FiPlusSquare,
+  FiTruck,
+  FiFileText,
   FiHelpCircle,
   FiLogOut
 } from 'react-icons/fi';
+import logoImage from '../../assets/logo.jpg';
 
 const Sidebar = () => {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.logoContainer}>
-        <img src="/logo.png" alt="AAJ Logo" className={styles.logoImage} onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }} />
-        {/* Fallback mock logo if image not present */}
-        <div className={styles.logoBox} style={{display: 'none'}}>
-          <span className={styles.logoText}>AAJ</span>
-          <div className={styles.logoLine}></div>
-        </div>
+        <img src={logoImage} alt="AAJ Logo" className={styles.logoImage} onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
       </div>
 
       <nav className={styles.nav}>

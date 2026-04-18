@@ -68,7 +68,7 @@ const PreviewPanel = ({ orderState }) => {
               </div>
               <div className={styles.pkgRight}>
                 <p className={styles.pkgWeight}>{pkg.weight || 0} kg</p>
-                <p className={styles.pkgValue}>${pkg.value || 0}</p>
+                <p className={styles.pkgValue}>₹{pkg.value || 0}</p>
               </div>
             </div>
           ))}
@@ -83,7 +83,7 @@ const PreviewPanel = ({ orderState }) => {
           </div>
           <div className={styles.textRight}>
             <p className={styles.totalLabel}>Declared Value</p>
-            <p className={styles.totalValue}>${totalValue.toLocaleString()}</p>
+            <p className={styles.totalValue}>₹{totalValue.toLocaleString()}</p>
           </div>
         </div>
 

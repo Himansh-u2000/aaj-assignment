@@ -50,7 +50,8 @@
 .formBody {
   display: flex;
   flex-direction: column;
-  gap: 0; /* Cards already have margin-bottom */
+  gap: 0;
+  /* Cards already have margin-bottom */
 }
 
 .addressRow {
@@ -74,5 +75,40 @@
 @media (max-width: 900px) {
   .addressRow {
     flex-direction: column;
+  }
+}
+
+.loader {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 2px solid white;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.successText {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
