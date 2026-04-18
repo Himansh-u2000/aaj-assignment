@@ -21,7 +21,6 @@ function App() {
 
   return (
     <div className={styles.appContainer}>
-      {/* Overlay for mobile sidebar */}
       {sidebarOpen && (
         <div className={styles.overlay} onClick={() => setSidebarOpen(false)} />
       )}
@@ -29,9 +28,7 @@ function App() {
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <div className={styles.mainContent}>
-        {/* Global Header */}
         <div className={styles.topHeader}>
-          {/* Hamburger — visible only on small screens */}
           <button
             className={styles.menuBtn}
             onClick={() => setSidebarOpen(true)}

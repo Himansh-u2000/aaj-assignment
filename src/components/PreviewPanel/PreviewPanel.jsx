@@ -34,9 +34,6 @@ const PreviewPanel = ({ orderState }) => {
         <div className={styles.routeCard}>
           {/* Origin */}
           <div className={styles.routeStop}>
-            <div className={styles.routeIconWrap} data-type="origin">
-              <FaLocationDot className={styles.routeIcon} />
-            </div>
             <div className={styles.routeInfo}>
               <span className={styles.routeLabel} data-type="origin">Origin</span>
               <p className={styles.routeName}>{consignor.name || 'Sender Name'}</p>
@@ -55,9 +52,6 @@ const PreviewPanel = ({ orderState }) => {
 
           {/* Destination */}
           <div className={styles.routeStop}>
-            <div className={styles.routeIconWrap} data-type="dest">
-              <FaLocationPin className={styles.routeIcon} />
-            </div>
             <div className={styles.routeInfo}>
               <span className={styles.routeLabel} data-type="dest">Destination</span>
               <p className={styles.routeName}>{consignee.name || 'Receiver Name'}</p>
