@@ -52,93 +52,116 @@
 }
 
 .addresses {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  position: relative;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.addressBlock {
+/* ── Route Card ─────────────────────────────── */
+.routeCard {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eeeff1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.routeStop {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 2;
+  gap: 14px;
 }
 
-.addressBlock:last-child {
-  margin-bottom: 0;
+.routeIconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-.circle {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid #1a6fc4;
-  background-color: #1a6fc4;
-  margin-right: 15px;
-  margin-top: 4px;
+.routeIconWrap[data-type="origin"] {
+  background: #dbeafe;
+  color: #1d4ed8;
 }
 
-.circleDest {
-  background-color: #9ca3af;
-  border-color: #9ca3af;
+.routeIconWrap[data-type="dest"] {
+  background: #acaaaa;
+  color: #2e2d2d;
 }
 
-.connectingLine {
-  position: absolute;
-  left: 25px;
-  top: 30px;
-  bottom: 30px;
-  width: 1px;
-  background-color: #ddd;
-  z-index: 1;
+.routeIcon {
+  font-size: 16px;
 }
 
-.addressTitle {
-  font-size: 11px;
-  font-weight: 700;
-  color: #888;
-  margin: 0 0 4px 0;
-  letter-spacing: 0.5px;
+.routeInfo {
+  flex: 1;
 }
 
-.badge {
+.routeLabel {
   display: inline-block;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.6px;
-  padding: 3px 9px;
-  border-radius: 20px;
-  margin-bottom: 6px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-bottom: 5px;
 }
 
-.originBadge {
-  background-color: #dbeafe;
+.routeLabel[data-type="origin"] {
+  background: #dbeafe;
   color: #1d4ed8;
-  border: 1px solid #bfdbfe;
 }
 
-.destBadge {
-  background-color: #f3f4f6;
-  color: #6b7280;
-  border: 1px solid #d1d5db;
+.routeLabel[data-type="dest"] {
+  background: #acaaaa;
+  color: #2e2d2d;
 }
 
-.name {
+.routeName {
   font-size: 15px;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #1a1a1a;
   margin: 0 0 2px 0;
 }
 
-.subText {
-  font-size: 13px;
-  color: #777;
+.routeAddress {
+  font-size: 12px;
+  color: #888;
   margin: 0;
+  line-height: 1.5;
+}
+
+.routeDivider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0 6px 17px;
+}
+
+.routeLine {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(to right,
+      #d1d5db 0,
+      #d1d5db 4px,
+      transparent 4px,
+      transparent 8px);
+}
+
+.routeArrow {
+  font-size: 9px;
+  color: #9ca3af;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .manifestSection {

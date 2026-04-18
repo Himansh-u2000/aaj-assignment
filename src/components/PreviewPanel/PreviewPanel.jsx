@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaShieldAlt, FaWineGlass } from 'react-icons/fa';
+import { FaLocationDot, FaLocationPin } from 'react-icons/fa6';
 import styles from './PreviewPanel.module.css';
 
 const PreviewPanel = ({ orderState }) => {
@@ -30,21 +31,40 @@ const PreviewPanel = ({ orderState }) => {
       </div>
 
       <div className={styles.addresses}>
-        <div className={styles.addressRow}>
-          <div className={`${styles.addressCard} ${styles.fromCard}`}>
-            <span className={styles.fromToLabel}>From</span>
-            <p className={styles.name}>{consignor.name || 'Sender Name'}</p>
-            <p className={styles.subText}>
-              {[consignor.address, consignor.city, consignor.pincode].filter(Boolean).join(', ') || 'City, ZIP'}
-            </p>
+        <div className={styles.routeCard}>
+          {/* Origin */}
+          <div className={styles.routeStop}>
+            <div className={styles.routeIconWrap} data-type="origin">
+              <FaLocationDot className={styles.routeIcon} />
+            </div>
+            <div className={styles.routeInfo}>
+              <span className={styles.routeLabel} data-type="origin">Origin</span>
+              <p className={styles.routeName}>{consignor.name || 'Sender Name'}</p>
+              <p className={styles.routeAddress}>
+                {[consignor.address, consignor.city, consignor.pincode].filter(Boolean).join(', ') || 'Address, City, ZIP'}
+              </p>
+            </div>
           </div>
 
-          <div className={`${styles.addressCard} ${styles.toCard}`}>
-            <span className={styles.fromToLabel}>To</span>
-            <p className={styles.name}>{consignee.name || 'Receiver Name'}</p>
-            <p className={styles.subText}>
-              {[consignee.address, consignee.city, consignee.pincode].filter(Boolean).join(', ') || 'City, ZIP'}
-            </p>
+          {/* Divider with arrow */}
+          <div className={styles.routeDivider}>
+            <div className={styles.routeLine}></div>
+            <div className={styles.routeArrow}>▼</div>
+            <div className={styles.routeLine}></div>
+          </div>
+
+          {/* Destination */}
+          <div className={styles.routeStop}>
+            <div className={styles.routeIconWrap} data-type="dest">
+              <FaLocationPin className={styles.routeIcon} />
+            </div>
+            <div className={styles.routeInfo}>
+              <span className={styles.routeLabel} data-type="dest">Destination</span>
+              <p className={styles.routeName}>{consignee.name || 'Receiver Name'}</p>
+              <p className={styles.routeAddress}>
+                {[consignee.address, consignee.city, consignee.pincode].filter(Boolean).join(', ') || 'Address, City, ZIP'}
+              </p>
+            </div>
           </div>
         </div>
 

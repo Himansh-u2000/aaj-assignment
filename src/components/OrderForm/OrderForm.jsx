@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import ShipmentDetails from './ShipmentDetails';
-import AddressCard from './AddressCard';
-import PackageSection from './PackageSection';
-import PackageModal from './PackageModal';
+import { useState } from 'react';
 import AlertModal from '../UI/AlertModal/AlertModal';
 import Button from '../UI/Button/Button';
-import { FiUpload, FiDownload } from 'react-icons/fi';
+import AddressCard from './AddressCard';
 import styles from './OrderForm.module.css';
+import PackageModal from './PackageModal';
+import PackageSection from './PackageSection';
+import ShipmentDetails from './ShipmentDetails';
 
 const OrderForm = ({ orderState, setOrderState }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -91,13 +90,19 @@ const OrderForm = ({ orderState, setOrderState }) => {
         <div className={styles.addressRow}>
           <AddressCard
             title="Consignor (Sender)"
-            icon={<FiUpload />}
+            icon={<svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 2V0H17V2H1V2M1 16V10H0V8L1 3H17L18 8V10H17V16H15V10H11V16H1V16M3 14H9V10H3V14V14M2.05 8V8H15.95V8H2.05V8M2.05 8H15.95L15.35 5H2.65L2.05 8V8" fill="#B91B2C" />
+            </svg>
+            }
             data={orderState.consignor}
             onChange={handleConsignorChange}
           />
           <AddressCard
             title="Consignee (Receiver)"
-            icon={<FiDownload />}
+            icon={<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 6H18V4H16V6V6M16 10H18V8H16V10V10M16 14H18V12H16V14V14M16 18V16H20V2H11V3.4L9 1.95V0H22V18H16V18M0 18V8L7 3L14 8V18H8V13H6V18H0V18M2 16H4V11H10V16H12V9L7 5.45L2 9V16V16M16 7V7V7V7V7V7V7V7M10 16V16V11H4V16V16V11H7H10V16V16" fill="#B91B2C" />
+            </svg>
+            }
             data={orderState.consignee}
             onChange={handleConsigneeChange}
           />
